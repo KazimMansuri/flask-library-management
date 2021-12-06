@@ -123,6 +123,8 @@ def register():
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
+        flash("User Registered successfully..!")
+        
         return redirect(url_for('login'))
     return render_template('auth/register.html', title='Register', form=form)
 
