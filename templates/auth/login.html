@@ -4,6 +4,17 @@
 <div class="jumbotron jmb">
 
     <div class="content-section">
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
