@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<style>
+    .jmb {
+
+        border: black solid 3px;
+
+
+    }
+</style>
+
+<br>
+<div class="jumbotron jmb">
+
+	<h1>Update Book</h1>
+<br>
+
+
+<form action="" method="post" >
+	{{ form.hidden_tag() }}
+
+	
+	
+	<div class="form-group">
+		{{ form.book_name.label(class="form-control-label") }}
+		
+		{% if form.book_name.errors %}
+		{{ form.book_name(class="form-control is-invalid") }}
+		<div class="invalid-feedback">
+			{% for error in form.book_name.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% else %}
+		{{ form.book_name(class="form-control") }}
+		{% endif %}
+	</div>
+
+
+	<div class="form-group">
+		{{ form.book_description.label(class="form-control-label") }}
+		{% if form.book_description.errors %}
+		{{ form.book_description(class="form-control is-invalid") }}
+		<div class="invalid-feedback">
+			{% for error in form.book_description.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% else %}
+		{{ form.book_description(class="form-control") }}
+		{% endif %}
+	</div>
+
+
+	<div class="form-group">
+		{{ form.category.label(class="form-control-label") }}
+		{% if form.category.errors %}
+		{{ form.category(class="form-control is-invalid") }}
+		<div class="invalid-feedback">
+			{% for error in form.category.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% else %}
+		{{ form.category(class="form-control") }}
+		{% endif %}
+	</div>
+
+
+	<div class="form-group">
+		{{ form.book_type.label(class="form-control-label") }}
+		{% if form.book_type.errors %}
+		{{ form.book_type(class="form-control is-invalid") }}
+		<div class="invalid-feedback">
+			{% for error in form.book_type.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% else %}
+		{{ form.book_type(class="form-control") }}
+		{% endif %}
+	</div>
+
+
+	<div class="form-group">
+		{{ form.price.label(class="form-control-label") }}
+		{% if form.price.errors %}
+		{{ form.price(class="form-control is-invalid") }}
+		<div class="invalid-feedback">
+			{% for error in form.price.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% else %}
+		{{ form.price(class="form-control") }}
+		{% endif %}
+	</div>
+
+
+	<div class="form-group">
+		{{ form.submit(class="btn btn-success") }}
+	</div>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+    
+<div class="jumbotron jmb">
+    <h3>-----------------------------------</h3>
+
+
+       
+        <h1>NAME : {{book.book_name}}</h1>
+        <br>
+            
+        <p>Description : {{book.book_description}}  </p>
+        <br>
+        <p>Book Category : {{book.category}}</p>
+        <br>
+        <p>Book Type : {{book.book_type}}</p>
+        <br>
+        <p>Publish : {{book.date_posted}}</p>
+        <br>
+        <p> <strong>PRICE : {{book.price}}</strong> </p>
+
+    <h3>-----------------------------------</h3>
+    
+    <button type="button"><a href="{{ url_for('Book_Update', id=book.id ) }}" >Update</a></button>
+    <button type="button"><a href="{{ url_for('Book_Delete', id=book.id ) }}">Delete</a></button>
+  
+</div>
+{% endblock %}

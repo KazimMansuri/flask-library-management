@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Library Management System </title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .inl {
+
+      display: inline-block;
+
+    }
+
+    .jmb {
+
+      border: black solid 3px;
+
+
+    }
+
+    
+
+    .circle {
+      font-size: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
+    }
+  </style>
+
+</head>
+
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{ url_for('Index') }}">Library Management System</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('Books_list') }}">Books</a></li>
+
+        </li>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('CreateBook') }}">Create Book</a></li>
+        {% else %}
+        <li><a href="{{ url_for('CreateBook') }}" id="createbook">Create Book</a></li>
+        {% endif %}
+
+        
+  
+      </ul>
+
+
+
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+        {% if current_user.is_authenticated %}
+
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Logged in as : {{current_user.username}} </a>
+        </li>
+        <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span>Logout </a></li>
+
+        {% else %}
+
+
+        <li><a href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+        <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+        {% endif %}
+      </ul>
+
+
+
+    </div>
+  </nav>
+
+
+  <script>
+
+    $('#createbook').click(function loginFirst(){
+        
+        alert("please Login");
+    })
+
+
+</script>
+
+ 
+  <div>
+    <h1 style="text-align: center">LIBRARY MANAGEMENT</h1>
+  </div>
+
+  <div class="container">
+   
+      
+      {% block content %}
+      {% endblock %}
+
+  </div>
+
+
+
+</body>
+
+</html>

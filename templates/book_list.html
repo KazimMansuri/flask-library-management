@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<style>
+    .jmb {
+
+        border: black solid 3px;
+
+
+    }
+</style>
+
+<div class="jumbotron jmb">
+
+<div class="container">
+    <h1 class="text-center">Book List</h1>
+    <br>
+    <div class="jumbotron jmb">
+
+        {% for book in books %}
+
+
+        {% if current_user.is_authenticated %}
+
+            <a href="{{ url_for('Books_detail', id=book.id ) }}"> <h1>NAME : {{book.book_name}}</h1></a>
+
+        {% else %}
+
+            <a href="{{ url_for('Books_detail', id=book.id )  }}" id="login"><h1>NAME : {{book.book_name}}</h1></a>
+
+        {% endif %}
+
+        
+
+
+        <br>
+        <p>Book Type : {{book.book_type}}</p>
+        <br>
+        <p> <strong>PRICE : {{book.price}}</strong> </p>
+
+        <h1>-------------------------------------</h1>
+
+
+
+
+
+        {% endfor %}
+
+        <script>
+
+            $('#login').click(function loginFirst() {
+
+                alert("please Login");
+            })
+
+
+        </script>
+
+    </div>
+</div>
+</div>
+{% endblock content %}
