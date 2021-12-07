@@ -14,7 +14,6 @@ app = Flask(__name__)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 app.config['SECRET_KEY'] = 'c1155c6a351e49eba15c00ce577b259e'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/library'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
